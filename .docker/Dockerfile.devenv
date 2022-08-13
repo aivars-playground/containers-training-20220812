@@ -12,4 +12,6 @@ RUN useradd -m vscode && echo "vscode:vscode" | chpasswd \
 
 RUN echo "vscode ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 
+CMD['bash']
+
 USER vscode
