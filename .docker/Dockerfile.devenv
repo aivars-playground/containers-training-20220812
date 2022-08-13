@@ -1,22 +1,21 @@
 # syntax=docker/dockerfile:1
 
-FROM ubuntu
+FROM debian
 
-RUN apt update && \
-    apt -y install sudo git 
+RUN apt-get -y update
+RUN apt-get -y install git sudo
 
 RUN mkdir -p /usr/local/lib/docker/cli-plugins
 COPY --from=docker:dind /usr/local/bin/docker /usr/local/bin/
 COPY --from=docker:dind /usr/local/bin/docker-compose /usr/local/bin/
 COPY --from=docker:dind /usr/local/bin/docker-compose /usr/local/lib/docker/cli-plugins/
 
-RUN useradd -m vscode && echo "vscode:vscode" | chpasswd \
-	&& adduser vscode sudo \
-	&& groupadd docker \
-	&& usermod -aG docker vscode
+
+RUN useradd -s /bin/bash -m vscode \
+ && adduser vscode sudo \
+ && groupadd docker \
+ && usermod -aG docker vscode
 
 RUN echo "vscode ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
-
-RUN chsh -s /bin/bash vscode
 
 USER vscode
