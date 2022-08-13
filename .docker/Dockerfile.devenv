@@ -3,7 +3,6 @@
 FROM ubuntu
 
 RUN apt update && \
-	apt upgrade && \
     apt -y install sudo
 
 RUN useradd -m vscode && echo "vscode:vscode" | chpasswd \
