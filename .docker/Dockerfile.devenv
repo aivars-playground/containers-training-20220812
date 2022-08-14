@@ -21,4 +21,7 @@ RUN echo "vscode ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 #RUN chown root:docker /var/run/docker.sock
 #RUN chmod g+w /var/run/docker.sock
 
+#ls -la /var/run/docker.sock
+#> srwxrwxr-x 1 root docker 0 Aug 14 11:34 /var/run/docker.sock
+
 USER vscode
