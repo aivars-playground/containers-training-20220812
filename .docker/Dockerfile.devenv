@@ -4,7 +4,7 @@ FROM debian
 
 RUN apt-get -y update
 RUN apt-get -y upgrade
-RUN apt-get -y install git sudo
+RUN apt-get -y install git sudohttps://github.com/aivars-playground/containers-training-20220812/blob/main/.docker/Dockerfile.devenv
 
 RUN mkdir -p /usr/local/lib/docker/cli-plugins
 COPY --from=docker:dind /usr/local/bin/docker /usr/local/bin/
@@ -18,7 +18,7 @@ RUN useradd -s /bin/bash -m vscode \
 
 RUN echo "vscode ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 
-RUN chown root:docker /var/run/docker.sock
-RUN chmod g+w /var/run/docker.sock
+# RUN chown root:docker /var/run/docker.sock
+# RUN chmod g+w /var/run/docker.sock
 
 USER vscode
