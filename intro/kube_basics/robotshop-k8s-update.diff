@@ -1,0 +1,336 @@
+diff --git a/K8s/descriptors/cart-deployment.yaml b/K8s/descriptors/cart-deployment.yaml
+index 9497a94..1b654b0 100644
+--- a/K8s/descriptors/cart-deployment.yaml
++++ b/K8s/descriptors/cart-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: cart
+   name: cart
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: cart
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: cart
+     spec:
+diff --git a/K8s/descriptors/catalogue-deployment.yaml b/K8s/descriptors/catalogue-deployment.yaml
+index 2595f10..60452e5 100644
+--- a/K8s/descriptors/catalogue-deployment.yaml
++++ b/K8s/descriptors/catalogue-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: catalogue
+   name: catalogue
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: catalogue
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: catalogue
+     spec:
+diff --git a/K8s/descriptors/dispatch-deployment.yaml b/K8s/descriptors/dispatch-deployment.yaml
+index 93357b0..3736168 100644
+--- a/K8s/descriptors/dispatch-deployment.yaml
++++ b/K8s/descriptors/dispatch-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: dispatch
+   name: dispatch
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: dispatch
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: dispatch
+     spec:
+diff --git a/K8s/descriptors/mongodb-deployment.yaml b/K8s/descriptors/mongodb-deployment.yaml
+index 7e2b4a4..220cac9 100644
+--- a/K8s/descriptors/mongodb-deployment.yaml
++++ b/K8s/descriptors/mongodb-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: mongodb
+   name: mongodb
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: mongodb
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: mongodb
+     spec:
+diff --git a/K8s/descriptors/mysql-deployment.yaml b/K8s/descriptors/mysql-deployment.yaml
+index 4fe2922..5973310 100644
+--- a/K8s/descriptors/mysql-deployment.yaml
++++ b/K8s/descriptors/mysql-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: mysql
+   name: mysql
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: mysql
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: mysql
+     spec:
+diff --git a/K8s/descriptors/payment-deployment.yaml b/K8s/descriptors/payment-deployment.yaml
+index 64fd6c3..2e3b95d 100644
+--- a/K8s/descriptors/payment-deployment.yaml
++++ b/K8s/descriptors/payment-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: payment
+   name: payment
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: payment
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: payment
+     spec:
+diff --git a/K8s/descriptors/rabbitmq-deployment.yaml b/K8s/descriptors/rabbitmq-deployment.yaml
+index a9d7e2e..ed2b3d1 100644
+--- a/K8s/descriptors/rabbitmq-deployment.yaml
++++ b/K8s/descriptors/rabbitmq-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: rabbitmq
+   name: rabbitmq
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: rabbitmq
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: rabbitmq
+     spec:
+diff --git a/K8s/descriptors/ratings-deployment.yaml b/K8s/descriptors/ratings-deployment.yaml
+index ca5f142..b96fbdc 100644
+--- a/K8s/descriptors/ratings-deployment.yaml
++++ b/K8s/descriptors/ratings-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: ratings
+   name: ratings
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: ratings
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: ratings
+     spec:
+diff --git a/K8s/descriptors/redis-deployment.yaml b/K8s/descriptors/redis-deployment.yaml
+index 9f5221a..21adb30 100644
+--- a/K8s/descriptors/redis-deployment.yaml
++++ b/K8s/descriptors/redis-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: redis
+   name: redis
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: redis
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: redis
+     spec:
+diff --git a/K8s/descriptors/shipping-deployment.yaml b/K8s/descriptors/shipping-deployment.yaml
+index 40d5450..98534fb 100644
+--- a/K8s/descriptors/shipping-deployment.yaml
++++ b/K8s/descriptors/shipping-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: shipping
+   name: shipping
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: shipping
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: shipping
+     spec:
+diff --git a/K8s/descriptors/user-deployment.yaml b/K8s/descriptors/user-deployment.yaml
+index b7516d4..2abd053 100644
+--- a/K8s/descriptors/user-deployment.yaml
++++ b/K8s/descriptors/user-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: user
+   name: user
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: user
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: user
+     spec:
+diff --git a/K8s/descriptors/web-deployment.yaml b/K8s/descriptors/web-deployment.yaml
+index 91c1e5a..fec6400 100644
+--- a/K8s/descriptors/web-deployment.yaml
++++ b/K8s/descriptors/web-deployment.yaml
+@@ -1,19 +1,20 @@
+-apiVersion: extensions/v1beta1
++apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   annotations:
+     kompose.cmd: kompose -f ../docker-compose.yaml convert
+     kompose.version: 1.10.0 (8bb0907)
+-  creationTimestamp: null
+   labels:
+     io.kompose.service: web
+   name: web
+ spec:
++  selector:
++    matchLabels:
++      io.kompose.service: web
+   replicas: 1
+   strategy: {}
+   template:
+     metadata:
+-      creationTimestamp: null
+       labels:
+         io.kompose.service: web
+     spec:
