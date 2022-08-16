@@ -55,7 +55,17 @@ kubectl exec busybox -- curl 10.1.0.15
 
 Achitecture
 -----------
+control plane
 ```
-#see all system pods
-kubectl get pods -n kube-system
+> kubectl get pods -n kube-system
+
+etcd                    - provides distributed data store
+kube-apiserver          - rest based api (kubextl is usong api)
+kube-controller-manager - backend stuff controlling the cluster
+
+> sudo systemctl status kubelet
+kubelet -  The Kubernetes Node Agent: system service that controlls the cluster 
+
+kube_proxy  - trafic routing rules
+flannel     - network between nodes (other alternatives exist)
 ```
