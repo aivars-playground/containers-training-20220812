@@ -1,0 +1,3 @@
+[submodule "intro/kube_basics/robot-shop"]
+	path = intro/kube_basics/robot-shop
+	url = git@github.com:linuxacademy/robot-shop.git
