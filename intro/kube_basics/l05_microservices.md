@@ -22,3 +22,7 @@ kubectl -n robot-shop create -f ./robot-shop/K8s/descriptors/
 curl host.docker.internal:30080
 ```
 
+change running microservice on-the-fly
+```
+
+```
